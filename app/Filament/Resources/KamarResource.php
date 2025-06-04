@@ -31,7 +31,7 @@ class KamarResource extends Resource
                     ->label('ID Kamar')
                     ->default(function () {
                         $latest = \App\Models\Kamar::latest('id_kamar')->first();
-                        $lastNumber = $latest ? (int) str_replace('KM', '', $latest->id_obat) : 0;
+                        $lastNumber = $latest ? (int) str_replace('KM', '', $latest->id_kamar) : 0;
                         $newId = 'KM' . str_pad($lastNumber + 1, 3, '0', STR_PAD_LEFT);
                         return $newId;
                     })

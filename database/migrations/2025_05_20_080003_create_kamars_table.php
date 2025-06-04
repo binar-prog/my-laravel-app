@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('kamars', function (Blueprint $table) {
             $table->string('id_kamar', 20)->primary();
             $table->string('gedung', 20);
-            $table->integer('lantai');
+            $table->string('lantai');
             $table->string('tipe',20);
             $table->string('no_kamar', 5);
             $table->integer('no_bed');

@@ -31,7 +31,7 @@ class StafResource extends Resource
                     ->label('ID Staf')
                     ->default(function () {
                         $latest = \App\Models\Staf::latest('id_staf')->first();
-                        $lastNumber = $latest ? (int) str_replace('S', '', $latest->id_obat) : 0;
+                        $lastNumber = $latest ? (int) str_replace('S', '', $latest->id_staf) : 0;
                         $newId = 'S' . str_pad($lastNumber + 1, 3, '0', STR_PAD_LEFT);
                         return $newId;
                     })

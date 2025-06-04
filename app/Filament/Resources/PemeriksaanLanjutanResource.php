@@ -31,10 +31,11 @@ class PemeriksaanLanjutanResource extends Resource
                     ->label('ID Pemeriksaan Lanjutan')
                     ->default(function () {
                         $latest = \App\Models\PemeriksaanLanjutan::latest('id_pemeriksaan')->first();
-                        $lastNumber = $latest ? (int) str_replace('PEM', '', $latest->id_pemeriksaan) : 0;
+                        $lastNumber = $latest ? (int) str_replace('PEM-', '', $latest->id_pemeriksaan) : 0;
                         $newId = 'PEM-' . str_pad($lastNumber + 1, 3, '0', STR_PAD_LEFT);
                         return $newId;
                     })
+                    
                     ->disabled()
                     ->dehydrated(true) // tetap dikirim walau disabled
                     ->required()
